@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import users from './routes/users';
+import cookieParser = require('cookie-parser');
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -19,8 +20,14 @@ mongoose
     })
 
 const app = express()
-    .use(cors())
+    .use(cors(
+        {
+            origin: 'http://localhost:5174',
+            credentials: true
+        }
+    ))
     .use(express.json())
+    .use(cookieParser())
     .use(express.urlencoded({ extended: true }))
     .get('/', (req, res) => {
         res.send('🚀 API is running!');

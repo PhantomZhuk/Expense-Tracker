@@ -56,8 +56,8 @@ async function createUser(req: Request, res: Response): Promise<void> {
         const token = jwt.sign({ _id: newUser._id }, JWT_SECRET, { expiresIn: "1d" });
 
         res.status(201)
-            .cookie("token", token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 })
-            .json({ message: "User created", user: newUser });
+            .cookie("token", token)
+            .json({ message: "User created successfully" });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Failed to create user" });
@@ -85,9 +85,9 @@ async function login(req: Request, res: Response): Promise<void> {
 
         const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: "1d" });
 
-        res.cookie("token", token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 })
+        res.cookie('token', token)
             .status(200)
-            .json({ message: "Login successful", user });
+            .json({ message: "Login successful" });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Failed to login" });
