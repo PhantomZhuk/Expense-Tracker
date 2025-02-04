@@ -184,6 +184,8 @@ async function updateExpense(req: AuthRequest, res: Response): Promise<void> {
         const { name, amount, date } = req.body;
         const token = req.cookies.token;
 
+        console.log(req.body, req.params, req.cookies);
+
         if (!token) {
             res.status(401).json({ error: "Acess token required" });
             return;
