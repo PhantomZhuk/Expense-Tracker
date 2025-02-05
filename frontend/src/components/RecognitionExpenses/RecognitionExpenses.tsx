@@ -60,7 +60,7 @@ function RecognitionExpenses() {
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['expenseList'] });
         }
-    })
+    });
     function editContent(id: string) {
         const nameExpense = document.getElementById(`expenseName-${id}`) as HTMLInputElement;
         const amountExpense = document.getElementById(`expenseAmount-${id}`) as HTMLInputElement;

@@ -33,15 +33,16 @@ function AddExpenses() {
     })
 
     return (
-        <div>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} />
-            <input type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
+        <div className="w-full flex gap-5">
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="w-[500px] h-[40px] border-b-2 border-[#fff] p-2 outline-none" />
+            <input type="number" value={amount} min="0" onChange={(e) => setAmount(Number(e.target.value))} className="w-[250px] h-[40px] border-b-2 border-[#fff] p-2 outline-none" />
+            <input type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} className="w-[200px] h-[40px] border-b-2 border-[#fff] p-2 outline-none" />
             <button onClick={() => {
                 mutation.mutate({ name, amount, date });
                 setName('');
                 setAmount(0);
-            }}>
+            }}
+                className="w-[150px] h-[40px] bg-[#e0e1dd] text-[#0d1b2a] font-bold rounded-xl cursor-pointer shadow-[0_1px_5px_#e0e1dd]">
                 Add
             </button>
         </div>
