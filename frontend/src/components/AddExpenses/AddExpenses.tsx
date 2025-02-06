@@ -33,7 +33,7 @@ function AddExpenses() {
     })
 
     return (
-        <div className="w-full flex gap-5">
+        <div className="w-full h-[10vh] flex gap-5 bg-[#1b263b] rounded-2xl p-[20px]">
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="w-[500px] h-[40px] border-b-2 border-[#fff] p-2 outline-none" />
             <input type="number" value={amount} min="0" onChange={(e) => setAmount(Number(e.target.value))} className="w-[250px] h-[40px] border-b-2 border-[#fff] p-2 outline-none" />
             <input type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} className="w-[200px] h-[40px] border-b-2 border-[#fff] p-2 outline-none" />
